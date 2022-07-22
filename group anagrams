@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        // sort the string and map it to the soreted string
+        unordered_map<string,vector<string>> ans2;
+        for(string s:strs)
+        {
+            // store the string in another duplicate string and then sort it.
+             string v=s;
+            sort(v.begin(),v.end());
+            ans2[v].push_back(s);
+           
+        }
+        // to return the reuried output we need to just print the value in map and neglect key.
+        vector<vector<string>> ans;
+        for(auto m:ans2)
+        {
+            ans.push_back(m.second);
+        }
+            return ans;
+    }
+
+};
